@@ -86,7 +86,7 @@ Buradada webpack ve babel'imizin dosyalari isleyip cikti verecegi yeri belirliyo
   },
 ```
 
-Buradada webpack eklentilerimizi'lerimizi ayarliyoruz.
+Buradada webpack plugin'lerimizi ayarliyoruz.
 
 ```js
   plugins: [...]
@@ -94,7 +94,13 @@ Buradada webpack eklentilerimizi'lerimizi ayarliyoruz.
 
 Burada da bir htm sayfasini HtmlWebpack Plugini ile eklemeyi yapiyoruz.
 
+```cmd
+  npm i -D html-webpack-plugin
+```
+
 ```js
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 plugins: [
   new HtmlWebpackPlugin({
     title: "webpack Boilerplate",
@@ -103,4 +109,10 @@ plugins: [
     filename: "index.html", // output file
   }),
 ];
+```
+
+title = kismindan sayfalarimizin title'larini ayarlayabiliriz fakat src de yazdigimiz html'lerin title kismi asagidaki gibi olmalidir
+
+```html
+<title><%= htmlWebpackPlugin.options.title %></title>
 ```
