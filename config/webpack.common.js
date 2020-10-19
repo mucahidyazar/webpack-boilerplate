@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: [paths.src + "/index.js"],
+  entry: [paths.public + "/js/index.js"],
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
@@ -63,7 +63,7 @@ module.exports = {
         };
       */
       {
-        test: /\.(s[ac]ss|less)$/,
+        test: /\.(s?)css$/,
         use: [
           "style-loader",
           {
@@ -77,7 +77,17 @@ module.exports = {
       //Images
       { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource" },
       //Fonts
-      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline" },
+      {
+        test: /\.(ttf|eot|svg|gif|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "assets/fonts/",
+            },
+          },
+        ],
+      },
     ],
   },
 };
