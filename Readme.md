@@ -5,6 +5,50 @@
 - [About Structure](#about-structure)
 - [About Icons](#about-icons)
 - [Creating New Page](#creating-new-page)
+- [Webpack Configrations](#webpack-configrations)
+
+## Installation
+
+    git clone https://github.com/mucahidyazar/webpack-boilerplate.git
+    npm install -D webpack webpack-cli
+    npm install .
+    npm run dev
+
+## Some Url about webpack
+
+- [webpack](https://webpack.js.org/)
+- [Documentation](https://webpack.js.org/concepts/)
+
+## About Structure
+
+- public => keep css, font, img and sass files inside this folder
+- src => keep html files inside this folder
+
+## About Icons
+
+- public/icon => main icon folder
+- [Icomoon](https://icomoon.io/app) You should import your icon files on there and generate your new files to add there again
+
+## Creating New Page
+
+- Create a new html file inside the src folder. And describe it in the webpack.common.js
+
+For example
+
+```js
+  new HtmlWebpackPlugin({
+    title: "webpack Boilerplate",
+    favicon: paths.public + "/img/favicon.png",
+    template: paths.src + "/about.html", // template file
+    filename: "about.html", // output file
+  }),
+```
+
+## Build
+
+You will gel a folder that name is 'dist' after run this code.
+
+    npm run build
 
 # Webpack Configrations
 
@@ -52,43 +96,6 @@
         - [HotModuleReplacementPlugin](#hotmodulereplacementplugin)
 
     - [Environment Variables and Mode Settings](#environment-variables-and-mode-settings)
-
-## Installation
-
-    git clone https://github.com/mucahidyazar/webpack-boilerplate.git
-    npm install -D webpack webpack-cli
-    npm install .
-    npm run dev
-
-## Some Url about webpack
-
-- [webpack](https://webpack.js.org/)
-- [Documentation](https://webpack.js.org/concepts/)
-
-## About Structure
-
-- public => keep css, font, img and sass files inside this folder
-- src => keep html files inside this folder
-
-## About Icons
-
-- public/icon => main icon folder
-- [Icomoon](https://icomoon.io/app) You should import your icon files on there and generate your new files to add there again
-
-## Creating New Page
-
-- Create a new html file inside the src folder. And describe it in the webpack.common.js
-
-For example
-
-```js
-  new HtmlWebpackPlugin({
-    title: "webpack Boilerplate",
-    favicon: paths.public + "/img/favicon.png",
-    template: paths.src + "/about.html", // template file
-    filename: "about.html", // output file
-  }),
-```
 
 # WEBPACK
 
